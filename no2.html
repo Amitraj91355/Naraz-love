@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Love you</title>
+    <style>
+        .no button {
+            background-color: #dc3545;
+            position: relative;
+            /* Initially position it normally */
+        }
+
+        .no button:hover {
+            background-color: #c82333;
+            position: absolute;
+            /* Changes position to absolute when hovered */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="./sticker/hug.gif" alt="Ek baar or soch lo">
+        </div>
+        <h3>😫 Babu maan jao na kitna bhaw khaogii 😭😭</h3>
+        <p>- Bahut galat baat hai babu ab to maan jao 😭😭 </p>
+        <div class="btn">
+            <div class="yes">
+                <a href="yes.html"><button>YES</button></a> <!-- Link to YES page -->
+            </div>
+            <div class="no">
+                <button id="noBtn">NO</button>
+            </div>
+            <div class="clickme">
+                <a href="clickme.html"><button id="noBtn">Click Me</button></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const container = noBtn.parentElement.parentElement.parentElement;
+
+        noBtn.addEventListener('mouseover', function () {
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            let offsetX, offsetY;
+
+            // Calculate a random position for the NO button within the container
+            offsetX = Math.random() * (containerRect.width - btnRect.width);
+            offsetY = Math.random() * (containerRect.height - btnRect.height);
+
+            // Move the NO button to the new position
+            noBtn.style.left = `${offsetX}px`;
+            noBtn.style.top = `${offsetY}px`;
+            noBtn.style.transform = `translate(0, 0)`;
+        });
+    </script>
+</body>
+
+</html>
